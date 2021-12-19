@@ -16,8 +16,9 @@ export const SCORE_SPAN_ID = 'score-span';
 export const TIMER_SPAN_ID = 'timer-span';
 
 export const USER_NAME_ID = 'username-input';
-export const WELCOME_CONTAINER_ID = 'welcome-container';
-export const RESULT_CONTAINER_ID = 'result-container';
+export const START_PAGE_ID = 'start-page';
+export const RESULT_PAGE_ID = 'result-page';
+export const REFERENCES_CONTAINER_ID = "references-container";
 
 export const START_BUTTON_ID = 'start-quiz-btn';
 export const FINISH_BUTTON_ID = 'finish-quiz-btn';

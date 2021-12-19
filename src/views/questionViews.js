@@ -7,6 +7,7 @@ import {
   SCORE_SPAN_ID,
   TIMER_SPAN_ID,
   USER_INTERFACE_ID,
+  REFERENCES_CONTAINER_ID
 } from '../constants.js';
 import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
@@ -30,7 +31,7 @@ export const createAnswerElement = (answerText) => {
  */
 const createReferencesContainer = () => {
   const referencesContainer = createDOMElement('div', {
-    id: 'references-container',
+    id: REFERENCES_CONTAINER_ID,
   });
   const learnMore = createDOMElement('p', {
     className: 'learn',
@@ -205,6 +206,5 @@ export const createQuizHTML = () => {
   teamsName.innerText = `ICONIC HORDE vs. ${quizData.userName}`;
   userInterfaceContainer.appendChild(teamsName);
   const quizContainer = createQuizContainer();
-  console.log(quizContainer);
   userInterfaceContainer.appendChild(quizContainer);
 };

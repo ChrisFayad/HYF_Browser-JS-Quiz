@@ -1,7 +1,6 @@
 'use strict';
 
 import {
-  QUIZ_CONTAINER_ID,
   NEXT_QUESTION_BUTTON_ID,
   SCORE_SPAN_ID,
   USER_INTERFACE_ID,
@@ -23,6 +22,7 @@ import {
 } from '../listeners/questionListeners.js';
 import { getCurrentQuestion } from '../views/questionViews.js';
 import { createResultPage } from '../views/resultPageView.js';
+
 export const incrementQuestionIndex = () => {
   quizData.currentQuestionIndex += 1;
 };
@@ -30,7 +30,6 @@ export const showCurrentQuestion = () => {
   const currentIndex = quizData.currentQuestionIndex;
   //* Adding eventListener for answers for current question
   const answers = document.getElementsByClassName(`answer${currentIndex}`);
-  console.log(answers);
   for (let answer of answers) {
     answer.addEventListener('click', selectedAnswer);
   }
@@ -41,11 +40,13 @@ export const showCurrentQuestion = () => {
   const timerCountdown = () => {
     // Timer countdown gets the time variable from Line 21 which gets the data from data.js
     time > 0 ? time-- : (time = 0);
-    // timeCount.textContent = time;
     timeCount.textContent = `Time left: ${time}`;
     // when the timer is 0, the correct answer assigned.
     if (time === 0) {
       showCorrectAnswer();
+      for (let answer of answers) {
+        answer.removeEventListener('click', selectedAnswer);
+      }
       nextQuestionButton.addEventListener('click', nextQuestion);
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
       clearInterval(quizData.counter);
@@ -107,7 +108,6 @@ export const handleSelectedAnswer = (evt) => {
   const currentIndex = quizData.currentQuestionIndex;
   //* Removing eventListeners from all current answers after one click
   const answers = document.getElementsByClassName(`answer${currentIndex}`);
-  console.log(answers);
   for (let answer of answers) {
     answer.removeEventListener('click', selectedAnswer);
   }

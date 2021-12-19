@@ -1,6 +1,6 @@
 'use strict';
 
-import { FINISH_BUTTON_ID } from '../constants.js';
+import { FINISH_BUTTON_ID, RESULT_PAGE_ID } from '../constants.js';
 
 import { createDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
@@ -17,7 +17,7 @@ const createFinishButton = () => {
 export const createResultPage = () => {
   const finalScore = quizData.currentTotalScore;
   const resultPageContainer = createDOMElement('div', {
-    id: 'result-page',
+    id: RESULT_PAGE_ID,
     className: 'column',
   });
 

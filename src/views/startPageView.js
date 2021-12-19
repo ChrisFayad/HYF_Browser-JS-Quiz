@@ -4,6 +4,7 @@ import {
   USER_INTERFACE_ID,
   USER_NAME_ID,
   START_BUTTON_ID,
+  START_PAGE_ID,
 } from '../constants.js';
 
 import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
@@ -38,13 +39,14 @@ export const createStartPage = () => {
   userInterface.appendChild(welcomeMessage);
 
   const startPageContainer = createDOMElement('div', {
-    id: 'start-page',
+    id: START_PAGE_ID,
     className: 'column',
   });
 
   const userNameElement = createDOMElement('input', { id: USER_NAME_ID });
   userNameElement.setAttribute('type', 'text');
   userNameElement.setAttribute('autofocus', 'autofocus');
+  userNameElement.setAttribute('autocomplete', 'off');
   userNameElement.placeholder = 'Type Your Name here..';
   userNameElement.addEventListener('keypress', (event) => {
     if (event.keyCode === 13) {
